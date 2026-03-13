@@ -1,0 +1,353 @@
+:root {
+  --cielo: #b9e8ff;
+  --pasto: #a8e6a2;
+  --pasto-oscuro: #7dcc7a;
+  --rosa: #ff8fb1;
+  --amarillo: #ffd867;
+  --texto: #2f3555;
+  --blanco: #fff;
+  --sombra: 0 10px 24px rgba(47, 53, 85, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Comic Sans MS", sans-serif;
+  color: var(--texto);
+  background: linear-gradient(180deg, #e8f8ff, #fdf7ff 45%, #fff6d8);
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.screen--active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  max-width: 560px;
+  width: min(92vw, 560px);
+  border-radius: 28px;
+  background: var(--blanco);
+  box-shadow: var(--sombra);
+  padding: 1.4rem 1.2rem 1.6rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0.2rem 0 0.6rem;
+  font-size: clamp(1.8rem, 3.9vw, 2.9rem);
+  line-height: 1.2;
+  color: #ff5b92;
+}
+
+p {
+  margin-top: 0;
+  font-size: clamp(1.1rem, 2.4vw, 1.3rem);
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.4rem;
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #ff8fb1, #ff6f9f);
+  color: #fff;
+  min-width: 180px;
+}
+
+.btn-secondary {
+  background: #eef0ff;
+  color: #4a4f6e;
+  font-size: 1rem;
+}
+
+#juego {
+  gap: 0.6rem;
+  justify-content: flex-start;
+}
+
+.hud {
+  width: min(1040px, 100%);
+  margin: 0 auto;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mensaje {
+  background: #fff;
+  border-radius: 16px;
+  padding: 0.65rem 0.9rem;
+  font-size: clamp(1.05rem, 2.3vw, 1.4rem);
+  font-weight: 700;
+  box-shadow: var(--sombra);
+}
+
+.parque {
+  position: relative;
+  width: min(1040px, 100%);
+  aspect-ratio: 16 / 9;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  box-shadow: var(--sombra);
+  background:
+    linear-gradient(180deg, var(--cielo) 0% 58%, var(--pasto) 58% 100%);
+}
+
+.nube {
+  position: absolute;
+  background: #f8fdff;
+  border-radius: 999px;
+  opacity: 0.9;
+}
+
+.nube-1 {
+  width: 15%;
+  height: 12%;
+  left: 8%;
+  top: 8%;
+}
+
+.nube-2 {
+  width: 18%;
+  height: 14%;
+  right: 10%;
+  top: 12%;
+}
+
+.arbol {
+  position: absolute;
+  bottom: 35%;
+}
+
+.arbol .copa {
+  position: absolute;
+  width: 92px;
+  height: 92px;
+  background: #5cc76d;
+  border-radius: 50%;
+  left: -24px;
+  bottom: 42px;
+}
+
+.arbol .tronco {
+  position: absolute;
+  width: 32px;
+  height: 64px;
+  background: #9f6e46;
+  border-radius: 10px;
+}
+
+.arbol-1 {
+  left: 4%;
+}
+
+.arbol-2 {
+  right: 12%;
+  transform: scale(1.07);
+}
+
+.flores {
+  position: absolute;
+  bottom: 8%;
+  left: 4%;
+  right: 4%;
+  display: flex;
+  justify-content: space-around;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+}
+
+.perros-amigos {
+  position: absolute;
+  right: 8%;
+  bottom: 16%;
+  font-size: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  gap: 0.6rem;
+}
+
+.personaje {
+  position: absolute;
+  bottom: 18%;
+  transition: left 1.4s ease-in-out, transform 300ms ease;
+}
+
+.sofi {
+  left: 20%;
+  width: clamp(74px, 9vw, 110px);
+  height: clamp(125px, 17vw, 170px);
+}
+
+.sofi .cabello {
+  position: absolute;
+  width: 100%;
+  height: 42%;
+  top: 0;
+  border-radius: 35px;
+  background: #4d2d1f;
+}
+
+.sofi .cara {
+  position: absolute;
+  width: 72%;
+  height: 30%;
+  left: 14%;
+  top: 18%;
+  border-radius: 50%;
+  background: #ffdcb9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(1.2rem, 2.3vw, 1.6rem);
+}
+
+.sofi .cuerpo {
+  position: absolute;
+  width: 64%;
+  height: 48%;
+  left: 18%;
+  bottom: 0;
+  border-radius: 20px 20px 15px 15px;
+  background: linear-gradient(180deg, #ff91c7, #ff74ac);
+}
+
+.loki {
+  left: 35%;
+  font-size: clamp(2.4rem, 5.2vw, 4rem);
+  display: flex;
+  align-items: flex-end;
+  gap: 0.3rem;
+}
+
+.loki .cola {
+  font-size: 1.5rem;
+  transform-origin: right center;
+  animation: meneo 0.5s infinite alternate;
+}
+
+.loki .correa {
+  position: absolute;
+  width: 72px;
+  height: 4px;
+  left: -70px;
+  top: 38px;
+  background: #f8587e;
+  border-radius: 999px;
+}
+
+.loki.suelto .correa {
+  display: none;
+}
+
+.loki.viniendo {
+  transform: scaleX(-1);
+}
+
+.controles {
+  width: min(1040px, 100%);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-call {
+  width: min(500px, 95%);
+  padding: 1rem 1.3rem;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  background: linear-gradient(180deg, #ffd867, #ffc341);
+  color: #6b4408;
+  box-shadow: var(--sombra);
+}
+
+.btn-call:disabled {
+  filter: grayscale(1);
+  cursor: default;
+}
+
+.recompensa {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.recompensa.activa {
+  display: block;
+}
+
+.particula {
+  position: absolute;
+  animation: subir 1.2s ease-out forwards;
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+}
+
+@keyframes subir {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.7);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-90px) scale(1.25);
+  }
+}
+
+@keyframes meneo {
+  from {
+    transform: rotate(-10deg);
+  }
+  to {
+    transform: rotate(16deg);
+  }
+}
+
+@media (max-width: 820px) {
+  .hud {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mensaje,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .parque {
+    aspect-ratio: 4 / 3;
+  }
+
+  .perros-amigos {
+    right: 5%;
+    bottom: 22%;
+  }
+}

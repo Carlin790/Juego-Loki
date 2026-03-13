@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sofi y Loki: ¡Vení, Loki!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-live="polite">
+      <section id="inicio" class="screen screen--active">
+        <div class="card inicio-card">
+          <h1>Sofi y Loki:<br />¡Vení, Loki!</h1>
+          <p>Un paseo tierno en el parque.</p>
+          <button id="jugarBtn" class="btn btn-primary" aria-label="Jugar">
+            ▶ Jugar
+          </button>
+        </div>
+      </section>
+
+      <section id="juego" class="screen" aria-label="Parque de Sofi y Loki">
+        <header class="hud">
+          <div id="mensaje" class="mensaje">¡Vamos de paseo!</div>
+          <button id="reiniciarBtn" class="btn btn-secondary">↻ Volver a jugar</button>
+        </header>
+
+        <div id="parque" class="parque">
+          <div class="nube nube-1"></div>
+          <div class="nube nube-2"></div>
+          <div class="arbol arbol-1"><span class="copa"></span><span class="tronco"></span></div>
+          <div class="arbol arbol-2"><span class="copa"></span><span class="tronco"></span></div>
+
+          <div class="flores">
+            <span>🌼</span><span>🌸</span><span>🌷</span><span>🌼</span><span>🌻</span>
+          </div>
+
+          <div class="perros-amigos" aria-hidden="true">
+            <span>🐕</span><span>🐩</span>
+          </div>
+
+          <div id="sofi" class="personaje sofi" aria-label="Sofi">
+            <div class="cabello"></div>
+            <div class="cara">😊</div>
+            <div class="cuerpo"></div>
+          </div>
+
+          <div id="loki" class="personaje loki atada" aria-label="Loki">
+            <div class="cola">〰</div>
+            <div class="perro">🐕‍🦺</div>
+            <div class="correa"></div>
+          </div>
+
+          <div id="recompensa" class="recompensa" aria-hidden="true"></div>
+        </div>
+
+        <div class="controles">
+          <button id="lokiBtn" class="btn btn-call" disabled>¡Loki!</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
